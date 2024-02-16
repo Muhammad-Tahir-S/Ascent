@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background-image: radial-gradient(
+    circle 815px at 23.4% -21.8%,
+    rgba(9, 29, 85, 1) 0.2%,
+    rgba(0, 0, 0, 1) 100.2%
+  );
+}
+
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(83, 136, 202, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(83, 136, 202, 0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(123, 179, 247, 0.192) 2px, transparent 2px);
+  background-size: 5vw 5vh;
+  background-position: top left;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px transparent;
+    /* 0 0 20px #fff, 0 0 30px #e60073,
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073; */
+  }
+  to {
+    text-shadow: 0 0 8px blue;
+    /* 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6; */
+  }
+}
