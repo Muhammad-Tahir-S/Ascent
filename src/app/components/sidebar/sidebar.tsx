@@ -6,7 +6,7 @@ import SidebarItem from "./sidebar-item";
 
 export default function Sidebar() {
   return (
-    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-primary">
+    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-primary shadow-xl">
       <Link href="/" className="flex items-center gap-2 mb-10">
         <SpriteIcon
           id="logo"
