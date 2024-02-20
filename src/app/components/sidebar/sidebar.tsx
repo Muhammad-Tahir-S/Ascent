@@ -3,10 +3,11 @@ import { ComponentProps } from "react";
 
 import SpriteIcon from "../sprite-icon";
 import SidebarItem from "./sidebar-item";
+import Typography from "../typography";
 
 export default function Sidebar() {
   return (
-    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-primary shadow-xl">
+    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-primary shadow-primary shadow-xl">
       <Link href="/" className="flex items-center gap-2 mb-10">
         <SpriteIcon
           id="logo"
@@ -16,7 +17,10 @@ export default function Sidebar() {
             className: "fill-secondary",
           }}
         />
-        <div className="text-[30px] font-medium text-secondary">Ascent</div>
+
+        <Typography variant="H3" className="font-medium" textColor="secondary">
+          Ascent
+        </Typography>
       </Link>
 
       <div className="flex flex-col gap-2">

@@ -7,9 +7,10 @@ import clsx from "clsx";
 import useSound from "use-sound";
 import Link from "next/link";
 
-import { rubik, rubikGlitch } from "@/app/fonts";
+import { rubik, rubikGemstones, rubikGlitch } from "@/app/fonts";
 
 import SpriteIcon from "../sprite-icon";
+import Typography from "../typography";
 
 export default function SidebarItem({
   title,
@@ -38,16 +39,15 @@ export default function SidebarItem({
       {isActive && (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1.4 }}
           transition={{ duration: 0.5 }}
-          className="w-[2px] h-full absolute bg-prim-highlight left-[-32px]"
+          className="w-[2px] h-full absolute bg-primary-hl left-[-32px]"
         />
       )}
 
       <div
         className={clsx("p-1", {
-          "rounded-md transition-colors duration-500 bg-sec-highlight":
-            isActive,
+          "rounded-md transition-colors duration-500 bg-secondary-hl": isActive,
         })}
       >
         <SpriteIcon {...iconProps} />
@@ -55,10 +55,10 @@ export default function SidebarItem({
 
       <p
         className={clsx(
-          "leading-snug font-light transition-colors duration-500",
-          isActive ? rubikGlitch.className : rubik.className,
+          "leading-snug font-normal transition-colors duration-500",
+          isActive ? rubikGlitch.className : rubikGemstones.className,
           isActive
-            ? "font-normal text-prim-highlight text-[20px]"
+            ? "font-normal text-primary-hl text-[20px]"
             : "text-secondary text-[18px] hover:scale-[1.05] transition-transform"
         )}
       >
