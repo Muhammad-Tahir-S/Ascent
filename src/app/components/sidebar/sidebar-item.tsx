@@ -47,7 +47,7 @@ export default function SidebarItem({
 
       <div
         className={clsx("p-1", {
-          "rounded-md transition-colors duration-500 bg-secondary-hl": isActive,
+          "rounded-md transition-colors duration-500 bg-primary-hl": isActive,
         })}
       >
         <SpriteIcon id={id} props={{ width: 24, height: 24, ...props }} />
