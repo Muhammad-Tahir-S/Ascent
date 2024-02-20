@@ -7,19 +7,18 @@ import clsx from "clsx";
 import useSound from "use-sound";
 import Link from "next/link";
 
-import { rubik, rubikGemstones, rubikGlitch } from "@/app/fonts";
+import { rubikGemstones, rubikGlitch } from "@/app/fonts";
 
 import SpriteIcon from "../sprite-icon";
-import Typography from "../typography";
 
 export default function SidebarItem({
   title,
   href,
-  iconProps: { id, props },
+  iconProps,
 }: {
   title: string;
   href: string;
-  iconProps: ComponentProps<typeof SpriteIcon>;
+  iconProps: (isActive: boolean) => ComponentProps<typeof SpriteIcon>;
 }) {
   const pathname = usePathname();
   const [playHoverPulse] = useSound("/hover-pulse.mp4", {
@@ -29,6 +28,8 @@ export default function SidebarItem({
   });
 
   const isActive = href === pathname;
+
+  const { id, props } = iconProps(isActive);
 
   return (
     <Link

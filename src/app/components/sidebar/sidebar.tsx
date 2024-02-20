@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ComponentProps } from "react";
 
@@ -36,25 +38,29 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
   {
     title: "Home",
     href: "/",
-    iconProps: {
+    iconProps: (isActive: boolean) => ({
       id: "home",
-      props: { className: "stroke-secondary" },
-    },
+      props: {
+        className: isActive ? "stroke-secondary-hl" : "stroke-secondary",
+      },
+    }),
   },
   {
     title: "Leaderboards",
     href: "/leaderboards",
-    iconProps: {
+    iconProps: (isActive: boolean) => ({
       id: "rank",
-      props: { className: "fill-secondary" },
-    },
+      props: { className: isActive ? "fill-secondary-hl" : "fill-secondary" },
+    }),
   },
   {
     title: "Settings",
     href: "/settings",
-    iconProps: {
+    iconProps: (isActive: boolean) => ({
       id: "cog",
-      props: { className: "stroke-secondary" },
-    },
+      props: {
+        className: isActive ? "stroke-secondary-hl" : "stroke-secondary",
+      },
+    }),
   },
 ];
