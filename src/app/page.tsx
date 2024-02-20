@@ -12,10 +12,10 @@ export default async function Home() {
       </div>
       <Button soundType="next">Next</Button>
       <Button soundType="back">Back</Button>
-      {/* <SpriteIcon
+      <SpriteIcon
         id={"logo-1"}
         props={{ width: 24, height: 24, fill: "red" }}
-      /> */}
+      />
     </main>
   );
 }

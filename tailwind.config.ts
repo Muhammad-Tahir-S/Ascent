@@ -9,10 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "bg-50": "#40798C",
-        "bg-100": "#1F363D",
-        primary: { 100: "#CFE0C3" },
-        secondary: { 100: "#242331" },
+        "ghost-white": "#F5F0F6",
+        primary: "#FFB8D1",
+        "prim-highlight": "#EF476F",
+        secondary: "#331832",
+        highlight: "#FFD166",
         blue: { tiffany: "#8DDBE0", nyanza: "#D3FFE9" },
       },
       backgroundImage: {
@@ -28,6 +29,7 @@ const config: Config = {
         "glow-bg": "0 0 10px blue",
       },
       animation: {
+        "glow-text": "glow-test 3s ease-in-out infinite alternate",
         glow: "glow 3s ease-in-out infinite alternate",
       },
     },

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
-
 import clsx from "clsx";
-import { baumans } from "./fonts";
 
+import { baumans } from "./fonts";
+import "./globals.css";
 import RankBanner from "./components/rank-banner";
-import Header from "./components/header";
+import Sidebar from "./components/sidebar";
 
 export const metadata: Metadata = {
   title: "Ascent",
@@ -19,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={clsx(baumans.className, "relative flex flex-col")}>
-        <Header />
+      <body className={clsx(baumans.className, "relative flex bg-ghost-white")}>
+        <Sidebar />
         <RankBanner />
         <div className="flex-1 flex flex-col">{children}</div>
       </body>

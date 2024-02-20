@@ -29,20 +29,20 @@ export default function RankBanner() {
       whileTap={{ scale: 0.95 }}
       variants={variants}
       transition={{ easings: ["easeIn", "easeOut"] }}
-      className="absolute flex flex-col right-[20%] top-0  w-[80px] "
+      className="absolute flex flex-col right-[20%] top-0 z-[9999] w-[80px] "
     >
       <div
         onClick={(e) => {
           e.stopPropagation();
           setIsExpanded((prev) => !prev);
         }}
-        className=" absolute bottom-[-16px] left-0 h-[16px] w-[80px] z-10 cursor-pointer"
+        className="absolute bottom-[-16px] left-0 h-[16px] w-[80px] z-10 cursor-pointer"
       />
       <div
         className={clsx(
-          "relative flex-1 w-full drop-shadow-glow-bg border  border-t-0 cursor-pointer  flex justify-center rounded-b-md",
+          "relative flex-1 w-full border  border-t-0 cursor-pointer  flex justify-center rounded-b-md",
           isExpanded
-            ? "bg-blue-nyanza border-secondary-100"
+            ? "bg-blue-nyanza border-secondary-100 drop-shadow-glow-bg"
             : "bg-bg-50 border-blue-tiffany"
         )}
       >
