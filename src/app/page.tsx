@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Button from "./components/button";
 import { rubikGemstones } from "./fonts";
+import Input from "./components/input";
 
 export default async function Home() {
   return (
@@ -12,6 +13,12 @@ export default async function Home() {
       <Button variant="secondary" width={200} soundType="back">
         back
       </Button>
+
+      <Input
+        className="mt-5"
+        label="Test label"
+        //  errorText="askjbkajsb"
+      />
     </main>
   );
 }

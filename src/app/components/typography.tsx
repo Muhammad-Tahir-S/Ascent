@@ -55,8 +55,8 @@ const fontStylesMap: Record<Variant, string> = {
   H6: "text-[18px] leading-[24px]",
   subtitle: "text-[16px] leading-[24px]",
   body: "text-[14px] leading-[24px]",
-  "caption-sm": "text-[12px] leading-[16px]",
-  "caption-lg": "text-[11px] leading-[16px]",
+  "caption-lg": "text-[12px] leading-[16px]",
+  "caption-sm": "text-[11px] leading-[16px]",
 };
 
 const colorsStylesMap: Record<Color, string> = {

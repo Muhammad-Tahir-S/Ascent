@@ -14,7 +14,12 @@ const config: Config = {
         "primary-hl": "#EF476F",
         secondary: "#331832",
         "secondary-hl": "#FFD166",
-        blue: { tiffany: "#8DDBE0", nyanza: "#D3FFE9" },
+        blue: {
+          tiffany: "#8DDBE0",
+          nyanza: "#D3FFE9",
+          yinMin: "#26547C",
+          uranian: "#A3D9FF",
+        },
       },
 
       dropShadow: {
