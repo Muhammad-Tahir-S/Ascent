@@ -15,7 +15,7 @@ import Typography from "../typography";
 export default function SidebarItem({
   title,
   href,
-  iconProps,
+  iconProps: { id, props },
 }: {
   title: string;
   href: string;
@@ -50,7 +50,7 @@ export default function SidebarItem({
           "rounded-md transition-colors duration-500 bg-secondary-hl": isActive,
         })}
       >
-        <SpriteIcon {...iconProps} />
+        <SpriteIcon id={id} props={{ width: 24, height: 24, ...props }} />
       </div>
 
       <p

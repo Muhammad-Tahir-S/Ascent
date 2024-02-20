@@ -38,7 +38,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     href: "/",
     iconProps: {
       id: "home",
-      props: { className: "w-6 h-6 stroke-secondary" },
+      props: { className: "stroke-secondary" },
     },
   },
   {
@@ -46,7 +46,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     href: "/leaderboards",
     iconProps: {
       id: "rank",
-      props: { className: "w-6 h-6 fill-secondary" },
+      props: { className: "fill-secondary" },
     },
   },
   {
@@ -54,7 +54,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     href: "/settings",
     iconProps: {
       id: "cog",
-      props: { className: "w-6 h-6 stroke-secondary" },
+      props: { className: "stroke-secondary" },
     },
   },
 ];
