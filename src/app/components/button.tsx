@@ -1,13 +1,13 @@
 "use client";
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import useSound from "use-sound";
 
 type ButtonsProps = {
   size?: "sm" | "md" | "lg";
   width?: "full" | "fit" | number;
   soundType?: "next" | "back";
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "outline";
 };
 
 interface ButtonProps
@@ -30,15 +30,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const [clicked, setClicked] = useState(false);
     const [playActive] = useSound("/click.wav", {
       volume: 1,
       playbackRate: soundType === "next" ? 1 : 0.75,
       interrupt: true,
     });
 
+    if (clicked) {
+      setTimeout(() => setClicked(false), 300);
+    }
+
     return (
       <button
         onClick={(e) => {
+          setClicked(true);
           if (!!soundType) {
             playActive();
           }
@@ -54,9 +60,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               : "fit-content",
         }}
         className={clsx(
-          "rounded-[8px] h-[36px] flex items-center justify-center relative shadow-md transition-colors duration-500 group",
+          "rounded-[8px] h-[36px] flex items-center justify-center relative shadow-sm transition-all group",
           sizeStylesMap[size],
           variantStylesMap[variant],
+          clicked ? "translate-y-[1.5px] scale-[0.98] duration-200 opacity-85" : "duration-500",
           className
         )}
       >
@@ -76,7 +83,9 @@ const variantStylesMap: { [k in NonNullable<ButtonProps["variant"]>]: string } =
     primary:
       "shadow-primary text-ghost-white/90 hover:text-white bg-primary-hl",
     secondary:
-      "border border-secondary bg-secondary-hl text-secondary hover:text-primary-hl hover:border-primary-hl",
+      "border border-secondary bg-secondary-hl text-secondary hover:text-primary-hl hover:border-primary-hl hover:shadow-primary",
+    outline:
+      "border border-blue-yinMin text-blue-yinMin hover:bg-blue-yinMin hover:text-blue-nyanza hover:border-blue-nyanza hover:shadow-blue-nyanza blur-1",
   };
 
 const sizeStylesMap: { [k in NonNullable<ButtonProps["size"]>]: string } = {

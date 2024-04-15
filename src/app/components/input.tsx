@@ -54,6 +54,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {...restInputProps}
         />
 
+        {/* label is placed below the input so tailwind's 'peer' can work */}
+
         {label && (
           <label
             className={clsx(
@@ -69,7 +71,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             </Typography>
           </label>
         )}
-
         {errorText && (
           <Typography
             variant="caption-lg"
@@ -78,7 +79,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {errorText}
           </Typography>
         )}
-
         {/* {hideable && (
             <Icon
               className="cursor-pointer"

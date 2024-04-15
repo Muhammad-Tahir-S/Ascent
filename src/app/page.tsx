@@ -10,8 +10,16 @@ export default async function Home() {
       <Button className="mb-[12px]" soundType="next">
         next
       </Button>
-      <Button variant="secondary" width={200} soundType="back">
+      <Button
+        className="mb-[12px]"
+        variant="secondary"
+        width={200}
+        soundType="back"
+      >
         back
+      </Button>
+      <Button variant="outline" width={200} soundType="back">
+        outline
       </Button>
 
       <Input
