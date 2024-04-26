@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import Button from "./components/button";
-import { rubikGemstones } from "./fonts";
-import Input from "./components/input";
+import Button from "../components/button";
+import { rubikGemstones } from "../fonts";
+import Input from "../components/input";
 
 export default async function Home() {
   return (

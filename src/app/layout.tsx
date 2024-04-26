@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={clsx(baumans.className, "relative flex bg-[#FCFCFC]")}>
-        <Sidebar />
-        <RankBanner />
-        <div className="flex-1 flex flex-col py-5 px-8">{children}</div>
+        {children}
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ import Typography from "../typography";
 
 export default function Sidebar() {
   return (
-    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-secondary-hl shadow-secondary-hl shadow-lg">
+    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-secondary-hl filter brightness-[105%] shadow-secondary-hl shadow-lg">
       <Link href="/" className="flex items-center gap-2 mb-10">
         <SpriteIcon
           id="logo"

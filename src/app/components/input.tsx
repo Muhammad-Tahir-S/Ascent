@@ -3,15 +3,20 @@ import { clsx } from "clsx";
 import { forwardRef, useState } from "react";
 import Typography from "./typography";
 
-interface InputProps
-  extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+import { Eye, EyeOff } from "lucide-react";
+
+type CustomInputProps = {
   errorText?: string;
   label?: string;
   hideable?: boolean;
-}
+  variant?: "default" | "olive";
+};
+interface InputProps
+  extends React.DetailedHTMLProps<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      HTMLInputElement
+    >,
+    CustomInputProps {}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
@@ -23,70 +28,76 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       errorText,
       hideable,
       type,
+      variant = "default",
       ...restInputProps
     },
     ref
   ) => {
     const inputId = id || name;
 
-    const [hideValue, setHideValue] = useState(true);
+    const [isHidden, setHidden] = useState(true);
+
+    const VisibilityIcon = isHidden ? Eye : EyeOff;
 
     return (
       <div className={clsx("group flex flex-col", className)}>
-        <input
-          id={inputId}
-          aria-invalid={!!errorText}
-          ref={ref as React.ForwardedRef<HTMLInputElement>}
-          name={name}
-          onWheel={(e) => {
-            if (type === "number") {
-              onNumberInputWheelChange(e);
-            }
-            restInputProps?.onWheel?.(e);
-          }}
-          className={clsx(
-            "peer order-2 px-2 py-[6px] w-full block max-h-[36px] bg-white border  rounded cursor-pointer peer  text-[14px] leading-[24px]  focus:outline-none disabled:bg-bg-100  disabled:cursor-default transition-colors duration-300",
-            errorText
-              ? "text-red-500 border-red-500"
-              : "text-gray-600 focus:text-blue-yinMin disabled:placeholder:text-gray-100 placeholder:text-gray-200 border-gray-400 focus:border-blue-uranian group-hover:border-blue-uranian disabled:border-gray-50"
-          )}
-          type={hideValue && hideable ? "password" : type}
-          {...restInputProps}
-        />
-
-        {/* label is placed below the input so tailwind's 'peer' can work */}
-
-        {label && (
-          <label
+        <div className="relative w-full ">
+          <input
+            id={inputId}
+            aria-invalid={!!errorText}
+            ref={ref as React.ForwardedRef<HTMLInputElement>}
+            name={name}
+            onWheel={(e) => {
+              if (type === "number") {
+                onNumberInputWheelChange(e);
+              }
+              restInputProps?.onWheel?.(e);
+            }}
             className={clsx(
-              "mb-1 block w-full  order-1 transition-colors duration-300",
+              "peer order-2 px-2 py-[6px] w-full block max-h-[36px] border  rounded  peer  text-[14px] leading-[24px]  focus:outline-none disabled:bg-bg-100  disabled:cursor-default transition-colors duration-300 relative",
               errorText
-                ? "text-red-500"
-                : "group-hover:text-blue-yinMin peer-focus:text-blue-yinMin"
+                ? "text-red-500 border-red-500"
+                : "text-navy focus:text-blue-800 disabled:placeholder:text-gray-100 placeholder:text-gray-200 border-blue-yinMin focus:border-blue-800 group-hover:border-blue-800 disabled:border-gray-50",
+              variant === "olive" ? "bg-light-olive" : "bg-white"
             )}
-            htmlFor={inputId}
-          >
-            <Typography variant="caption-lg" className="text-inherit">
-              {label}
-            </Typography>
-          </label>
-        )}
+            type={isHidden && hideable ? "password" : type}
+            {...restInputProps}
+          />
+
+          {/* label is placed below the input so tailwind's 'peer' can work */}
+
+          {label && (
+            <label
+              className={clsx(
+                "absolute left-0 top-0 -mt-[18px] block w-full   transition-colors duration-300",
+                errorText
+                  ? "text-red-500"
+                  : "peer-focus:text-blue-800 text-navy"
+              )}
+              htmlFor={inputId}
+            >
+              <Typography variant="caption-lg" className="text-inherit">
+                {label}
+              </Typography>
+            </label>
+          )}
+
+          {hideable && (
+            <VisibilityIcon
+              className="cursor-pointer w-4 h-4 absolute right-2 top-[50%] -translate-y-1/2 stroke-navy peer-focus:stroke-blue-800 hover:stroke-blue-800"
+              onClick={() => setHidden((prev) => !prev)}
+            />
+          )}
+        </div>
+
         {errorText && (
           <Typography
             variant="caption-lg"
-            className="text-red-500 order-3 transition-colors duration-300"
+            className="text-red-500  transition-colors duration-300"
           >
             {errorText}
           </Typography>
         )}
-        {/* {hideable && (
-            <Icon
-              className="cursor-pointer"
-              onClick={() => setHideValue(!hideValue)}
-              tag={hideValue ? EyeIcon : EyeSlashIcon}
-              position={'end'}
-            />
-          )} */}
       </div>
     );
   }

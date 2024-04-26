@@ -63,7 +63,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           "rounded-[8px] h-[36px] flex items-center justify-center relative shadow-sm transition-all group",
           sizeStylesMap[size],
           variantStylesMap[variant],
-          clicked ? "translate-y-[1.5px] scale-[0.98] duration-200 opacity-85" : "duration-500",
+          clicked
+            ? "translate-y-[1.5px] scale-[0.98] duration-200 opacity-85"
+            : "duration-500",
           className
         )}
       >
@@ -83,9 +85,9 @@ const variantStylesMap: { [k in NonNullable<ButtonProps["variant"]>]: string } =
     primary:
       "shadow-primary text-ghost-white/90 hover:text-white bg-primary-hl",
     secondary:
-      "border border-secondary bg-secondary-hl text-secondary hover:text-primary-hl hover:border-primary-hl hover:shadow-primary",
+      "border border-blue-900 bg-secondary-hl text-blue-900 hover:text-primary-hl hover:border-primary-hl hover:shadow-primary",
     outline:
-      "border border-blue-yinMin text-blue-yinMin hover:bg-blue-yinMin hover:text-blue-nyanza hover:border-blue-nyanza hover:shadow-blue-nyanza blur-1",
+      "border border-blue-700 text-blue-700 hover:bg-blue-800 hover:text-blue-nyanza hover:border-blue-nyanza hover:shadow-blue-nyanza blur-1",
   };
 
 const sizeStylesMap: { [k in NonNullable<ButtonProps["size"]>]: string } = {
