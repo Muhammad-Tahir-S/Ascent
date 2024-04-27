@@ -2,6 +2,7 @@
 import { clsx } from "clsx";
 import { forwardRef, useState } from "react";
 import Typography from "./typography";
+import useSound from "use-sound";
 
 import { Eye, EyeOff } from "lucide-react";
 
@@ -29,6 +30,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       hideable,
       type,
       variant = "default",
+      onKeyDown,
       ...restInputProps
     },
     ref
@@ -39,6 +41,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const VisibilityIcon = isHidden ? Eye : EyeOff;
 
+    const [playActive] = useSound("/keyboard-click.mp3", {
+      volume: 0.65,
+      playbackRate: 1,
+      interrupt: true,
+    });
+
     return (
       <div className={clsx("group flex flex-col", className)}>
         <div className="relative w-full ">
@@ -47,6 +55,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             aria-invalid={!!errorText}
             ref={ref as React.ForwardedRef<HTMLInputElement>}
             name={name}
+            onKeyDown={(e) => {
+              playActive();
+              onKeyDown?.(e);
+            }}
             onWheel={(e) => {
               if (type === "number") {
                 onNumberInputWheelChange(e);
@@ -85,7 +97,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {hideable && (
             <VisibilityIcon
               className="cursor-pointer w-4 h-4 absolute right-2 top-[50%] -translate-y-1/2 stroke-navy peer-focus:stroke-blue-800 hover:stroke-blue-800"
-              onClick={() => setHidden((prev) => !prev)}
+              onClick={() => {
+                playActive();
+                setHidden((prev) => !prev);
+              }}
             />
           )}
         </div>

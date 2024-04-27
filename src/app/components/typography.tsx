@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import { rubikGemstones, rubik, rubikGlitch, baumans } from "../fonts";
 
 type Variant =
   | "H1"
@@ -13,31 +14,37 @@ type Variant =
   | "caption-sm"
   | "caption-lg";
 
-type Color =
-  | "primary"
-  | "primary-highlight"
-  | "secondary"
-  | "secondary-highlight";
+type Color = "purple-pink" | "pink-red" | "wine" | "yellow";
 
 export default function Typography({
   variant,
   className,
   children,
   textColor,
+  fontFamily = "baumans",
   ...rest
 }: {
   variant: Variant;
   textColor?: Color;
+  fontFamily?: "rubikGemstones" | "rubikGlitch" | "baumans" | "rubik";
 } & DetailedHTMLProps<
   HTMLAttributes<HTMLParagraphElement>,
   HTMLParagraphElement
 >) {
+  const fonts: { [k in NonNullable<typeof fontFamily>]: typeof rubik } = {
+    rubik,
+    rubikGemstones,
+    rubikGlitch,
+    baumans,
+  };
+
   return (
     <p
       {...rest}
       className={clsx(
         fontStylesMap[variant],
         textColor ? colorsStylesMap[textColor] : null,
+        fonts[fontFamily].className,
         className
       )}
     >
@@ -60,8 +67,8 @@ const fontStylesMap: Record<Variant, string> = {
 };
 
 const colorsStylesMap: Record<Color, string> = {
-  primary: "text-primary",
-  secondary: "text-secondary",
-  "primary-highlight": "text-primary-hl",
-  "secondary-highlight": "text-secondary-hl",
+  "purple-pink": "text-purple-pink",
+  wine: "text-wine",
+  "pink-red": "text-pink-red",
+  yellow: "text-yellow",
 };

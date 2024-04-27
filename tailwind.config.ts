@@ -10,10 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         "ghost-white": "#F5F0F6",
-        primary: "#FFB8D1",
-        "primary-hl": "#EF476F",
-        secondary: "#331832",
-        "secondary-hl": "#FFD166",
+        'purple-pink': "#FFB8D1",
         blue: {
           tiffany: "#8DDBE0",
           nyanza: "#D3FFE9",
@@ -24,7 +21,9 @@ const config: Config = {
         yellow:'#ffd166',
         'light-olive':'#99d188',
         teal:'#1ea3a3',
-        navy:'#0c4857'
+        navy:'#0c4857',
+        wine:'#331832',
+
         
       },
 
@@ -33,15 +32,21 @@ const config: Config = {
         "glow-bg": "0 0 10px blue",
       },
       animation: {
-        "glow-text": "glow-test 3s ease-in-out infinite alternate",
+        "glow-text": "glow-text 3s ease-in-out infinite alternate",
         glow: "glow 3s ease-in-out infinite alternate",
-        slideIn: "slideIn 1.5s ease-in-out forwards"
+        slideIn: "slideIn 0.4s ease-in forwards",
+        breathe: 'breathe 4s ease-in-out infinite',
+
       },
       keyframes: {
         slideIn: {
-          "0%": { scale:'0.99', transform: "translateY(1.5%)"},
-          "100%": { scale:'1',transform: "translateY(0)"}
-        }
+          "0%": { scale:'0.97', transform: "translateY(1.5%)", opacity:'0'},
+          "100%": { scale:'1',transform: "translateY(0)",opacity:'1'}
+        },
+        breathe: {
+          "0%, 100%": { transform: "translateY(0)", scale:'1', filter:'brightness(105%)' },
+          "50%": { transform: "translateY(2px)", scale:'0.98',filter:'brightness(100%)'  },
+        },
       },
     
     },

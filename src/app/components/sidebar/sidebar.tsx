@@ -9,18 +9,18 @@ import Typography from "../typography";
 
 export default function Sidebar() {
   return (
-    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-secondary-hl filter brightness-[105%] shadow-secondary-hl shadow-lg">
+    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-yellow shadow-yellow shadow-lg">
       <Link href="/" className="flex items-center gap-2 mb-10">
         <SpriteIcon
           id="logo"
           props={{
             width: 36,
             height: 36,
-            className: "fill-secondary",
+            className: "fill-wine",
           }}
         />
 
-        <Typography variant="H3" className="font-medium" textColor="secondary">
+        <Typography variant="H3" className="font-medium" textColor="wine">
           Ascent
         </Typography>
       </Link>
@@ -41,7 +41,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     iconProps: (isActive: boolean) => ({
       id: "home",
       props: {
-        className: isActive ? "stroke-secondary-hl" : "stroke-secondary",
+        className: isActive ? "stroke-yellow" : "stroke-wine",
       },
     }),
   },
@@ -50,7 +50,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     href: "/leaderboards",
     iconProps: (isActive: boolean) => ({
       id: "rank",
-      props: { className: isActive ? "fill-secondary-hl" : "fill-secondary" },
+      props: { className: isActive ? "fill-yellow" : "fill-wine" },
     }),
   },
   {
@@ -59,7 +59,7 @@ const sidebarItems: ComponentProps<typeof SidebarItem>[] = [
     iconProps: (isActive: boolean) => ({
       id: "cog",
       props: {
-        className: isActive ? "stroke-secondary-hl" : "stroke-secondary",
+        className: isActive ? "stroke-yellow" : "stroke-wine",
       },
     }),
   },

@@ -3,8 +3,6 @@ import clsx from "clsx";
 
 import { baumans } from "./fonts";
 import "./globals.css";
-import RankBanner from "./components/rank-banner";
-import Sidebar from "./components/sidebar";
 
 export const metadata: Metadata = {
   title: "Ascent",

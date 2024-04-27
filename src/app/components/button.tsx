@@ -7,7 +7,7 @@ type ButtonsProps = {
   size?: "sm" | "md" | "lg";
   width?: "full" | "fit" | number;
   soundType?: "next" | "back";
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "wine" | "outline";
 };
 
 interface ButtonProps
@@ -83,9 +83,8 @@ export default Button;
 const variantStylesMap: { [k in NonNullable<ButtonProps["variant"]>]: string } =
   {
     primary:
-      "shadow-primary text-ghost-white/90 hover:text-white bg-primary-hl",
-    secondary:
-      "border border-blue-900 bg-secondary-hl text-blue-900 hover:text-primary-hl hover:border-primary-hl hover:shadow-primary",
+      "shadow-purple-pink text-ghost-white/90 hover:text-white bg-pink-red",
+    wine: "border border-blue-900 bg-yellow text-blue-900 hover:text-pink-red hover:border-pink-red hover:shadow-purple-pink",
     outline:
       "border border-blue-700 text-blue-700 hover:bg-blue-800 hover:text-blue-nyanza hover:border-blue-nyanza hover:shadow-blue-nyanza blur-1",
   };
