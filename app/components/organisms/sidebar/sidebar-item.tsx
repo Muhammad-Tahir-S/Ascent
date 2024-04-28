@@ -4,12 +4,12 @@ import { ComponentProps } from "react";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import clsx from "clsx";
-import useSound from "use-sound";
 import Link from "next/link";
 
-import { rubikGemstones, rubikGlitch } from "@/app/fonts";
+import { rubikGemstones, rubikGlitch } from "@/fonts";
 
-import SpriteIcon from "../sprite-icon";
+import SpriteIcon from "../../atoms/sprite-icon";
+import { usePlaySound } from "@/hooks/usePlaySound";
 
 export default function SidebarItem({
   title,
@@ -21,10 +21,13 @@ export default function SidebarItem({
   iconProps: (isActive: boolean) => ComponentProps<typeof SpriteIcon>;
 }) {
   const pathname = usePathname();
-  const [playHoverPulse] = useSound("/hover-pulse.mp4", {
-    playbackRate: 1.2,
-    interrupt: true,
-    volume: 0.3,
+  const [playHoverPulse] = usePlaySound({
+    src: "/hover-pulse.mp4",
+    options: {
+      playbackRate: 1.2,
+      interrupt: true,
+      volume: 0.3,
+    },
   });
 
   const isActive = href === pathname;

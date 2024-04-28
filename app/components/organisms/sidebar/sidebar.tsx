@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { ComponentProps } from "react";
 
-import SpriteIcon from "../sprite-icon";
+import SpriteIcon from "../../atoms/sprite-icon";
 import SidebarItem from "./sidebar-item";
-import Typography from "../typography";
+import Typography from "../../atoms/typography";
 
 export default function Sidebar() {
   return (

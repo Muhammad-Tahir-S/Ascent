@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
-import { rubikGemstones, rubik, rubikGlitch, baumans } from "../fonts";
+import { rubikGemstones, rubik, rubikGlitch, baumans } from "../../fonts";
 
 type Variant =
   | "H1"

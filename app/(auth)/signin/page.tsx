@@ -1,6 +1,6 @@
-import Button from "@/app/components/button";
-import Input from "@/app/components/input";
-import Typography from "@/app/components/typography";
+import Button from "@/components/atoms/button";
+import Input from "@/components/molecules/input";
+import Typography from "@/components/atoms/typography";
 import Link from "next/link";
 
 export default function page() {

@@ -1,4 +1,4 @@
-import { baumans } from "@/app/fonts";
+import { baumans } from "@/fonts";
 import clsx from "clsx";
 import React from "react";
 

@@ -1,10 +1,10 @@
 "use client";
 import { clsx } from "clsx";
 import { forwardRef, useState } from "react";
-import Typography from "./typography";
-import useSound from "use-sound";
+import Typography from "../atoms/typography";
 
 import { Eye, EyeOff } from "lucide-react";
+import { usePlaySound } from "../../hooks/usePlaySound";
 
 type CustomInputProps = {
   errorText?: string;
@@ -41,10 +41,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const VisibilityIcon = isHidden ? Eye : EyeOff;
 
-    const [playActive] = useSound("/keyboard-click.mp3", {
-      volume: 0.65,
-      playbackRate: 1,
-      interrupt: true,
+    const [playActive] = usePlaySound({
+      src: "/keyboard-click.mp3",
+      options: {
+        volume: 0.65,
+        playbackRate: 1,
+        interrupt: true,
+      },
     });
 
     return (
@@ -56,7 +59,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref as React.ForwardedRef<HTMLInputElement>}
             name={name}
             onKeyDown={(e) => {
-              playActive();
+              setTimeout(() => playActive(), 200);
               onKeyDown?.(e);
             }}
             onWheel={(e) => {

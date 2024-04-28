@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
-import useSound from "use-sound";
+import { usePlaySound } from "../../hooks/usePlaySound";
 
 type ButtonsProps = {
   size?: "sm" | "md" | "lg";
@@ -31,10 +31,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const [clicked, setClicked] = useState(false);
-    const [playActive] = useSound("/click.wav", {
-      volume: 1,
-      playbackRate: soundType === "next" ? 1 : 0.75,
-      interrupt: true,
+
+    const [playActive] = usePlaySound({
+      src: "/click.wav",
+      options: {
+        volume: 1,
+        playbackRate: soundType === "next" ? 1 : 0.75,
+        interrupt: true,
+      },
     });
 
     if (clicked) {

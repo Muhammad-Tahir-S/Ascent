@@ -8,7 +8,6 @@ export default function Leaderboards() {
       <div className={clsx(baumans.className, "text-yellow-300")}>
         Leaderboards
       </div>
-
     </div>
   );
 }
