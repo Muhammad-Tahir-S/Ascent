@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "@/components/atoms/button";
 import Input from "@/components/molecules/input";
+import Loader from "@/components/atoms/loader";
 
 export default async function Home() {
   return (
@@ -28,6 +29,12 @@ export default async function Home() {
         label="Test label"
         //  errorText="askjbkajsb"
       />
+      <div className="flex items-center justify-between px-12 w-full mt-10">
+        <Loader width={16} />
+        <Loader width={40} />
+        <Loader width={64} />
+        <Loader width={128} />
+      </div>
     </main>
   );
 }
