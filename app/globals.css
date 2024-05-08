@@ -16,7 +16,7 @@ html {
 }
 
 :root {
-  --speed: 8;
+  --speed: 6;
   --radius: 20%;
   --power4: linear(
     0 0%,
@@ -101,7 +101,7 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  bottom: -80%;
+  bottom: -60%;
   background: radial-gradient(
     circle at 50% 50%,
     rgba(0, 0, 0, 0.4),

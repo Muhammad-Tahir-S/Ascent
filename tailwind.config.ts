@@ -44,12 +44,12 @@ const config: Config = {
         breathe: {
           "0%, 100%": {
             transform: "translateY(0)",
-            scale: "1",
+            scale: "0.95",
             filter: "brightness(105%)",
           },
           "50%": {
+            scale: "1",
             transform: "translateY(2px)",
-            scale: "0.98",
             filter: "brightness(100%)",
           },
         },
