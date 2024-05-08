@@ -9,8 +9,11 @@ import Typography from "../../atoms/typography";
 
 export default function Sidebar() {
   return (
-    <div className="min-w-[280px] max-w-[280px] px-[32px] py-5 flex flex-col bg-yellow shadow-yellow shadow-lg">
-      <Link href="/" className="flex items-center gap-2 mb-10">
+    <div className="py-5 flex flex-col bg-yellow shadow-yellow shadow-lg transition-[padding,width] duration-500 hover:w-[240px] w-[48px] hover:px-[18px] px-[4px] group/sidebar-con items-center hover:items-start overflow-x-hidden">
+      <Link
+        href="/"
+        className="flex items-center justify-center group-hover/sidebar-con:justify-start group-hover/sidebar-con:gap-2 gap-0 mb-10 h-[40px]"
+      >
         <SpriteIcon
           id="logo"
           props={{
@@ -20,12 +23,16 @@ export default function Sidebar() {
           }}
         />
 
-        <Typography variant="H3" className="font-medium" textColor="wine">
+        <Typography
+          variant="H3"
+          className="font-medium hidden group-hover/sidebar-con:block"
+          textColor="wine"
+        >
           Ascent
         </Typography>
       </Link>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 group-hover/sidebar-con:items-start items-center ease-in-out">
         {sidebarItems.map((item) => (
           <SidebarItem key={item.title} {...item} />
         ))}

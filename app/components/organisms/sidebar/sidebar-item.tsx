@@ -38,32 +38,35 @@ export default function SidebarItem({
     <Link
       onClick={() => playHoverPulse()}
       href={href}
-      className="px-2 flex items-center gap-2 relative h-[30px]"
+      className="flex items-center group/sidebar-item group-hover/sidebar-con:gap-2 gap-0 relative"
     >
-      {isActive && (
+      {isActive ? (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1.4 }}
           transition={{ duration: 0.5 }}
-          className="w-[2px] h-full absolute bg-pink-red left-[-32px]"
+          className="w-[2px] h-full absolute bg-pink-red left-[-18px] group-hover/sidebar-con:block hidden"
         />
-      )}
+      ) : null}
 
       <div
-        className={clsx("p-1", {
-          "rounded-md transition-colors duration-500 bg-pink-red": isActive,
-        })}
+        className={clsx(
+          "h-[32px] aspect-square p-1 flex items-center justify-center group-hover/sidebar-con:flex-1 transition-colors duration-500",
+          {
+            "rounded-md bg-pink-red": isActive,
+          }
+        )}
       >
         <SpriteIcon id={id} props={{ width: 24, height: 24, ...props }} />
       </div>
 
       <p
         className={clsx(
-          "leading-snug font-normal transition-colors duration-500",
+          "leading-snug font-normal duration-500 group-hover/sidebar-con:block hidden transition-all",
           isActive ? rubikGlitch.className : rubikGemstones.className,
           isActive
             ? "font-normal text-pink-red text-[20px]"
-            : "text-wine text-[18px] hover:scale-[1.05] transition-transform"
+            : "text-wine text-[18px] group-hover/sidebar-item:scale-[1.05]"
         )}
       >
         {title}
