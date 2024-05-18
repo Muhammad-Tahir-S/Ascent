@@ -1,5 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+      },
+      {
+        protocol: "https",
+        hostname: "www.udiscovermusic.com",
+      },
+    ],
+  },
+};
 
 const withBundleAnalyzer = require("@next/bundle-analyzer")();
 

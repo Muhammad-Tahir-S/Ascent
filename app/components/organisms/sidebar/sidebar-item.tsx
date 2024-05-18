@@ -51,9 +51,9 @@ export default function SidebarItem({
 
       <div
         className={clsx(
-          "h-[32px] aspect-square p-1 flex items-center justify-center group-hover/sidebar-con:flex-1 transition-colors duration-500",
+          "h-[32px] aspect-square p-1 flex items-center justify-center group-hover/sidebar-con:flex-1 transition-colors duration-500 rounded-md",
           {
-            "rounded-md bg-pink-red": isActive,
+            "bg-pink-red": isActive,
           }
         )}
       >

@@ -5,7 +5,7 @@ import Loader from "@/components/atoms/loader";
 
 export default async function Home() {
   return (
-    <main className="flex flex-col flex-1 overflow-y-auto px-2">
+    <main className="flex flex-col flex-1 overflow-y-auto px-8 py-5">
       <Button className="mb-[12px]" soundType="next">
         next
       </Button>

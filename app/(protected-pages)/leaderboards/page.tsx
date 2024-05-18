@@ -1,54 +1,80 @@
-"use client";
-import clsx from "clsx";
-import React, { useState } from "react";
-import { baumans } from "../../fonts";
-import Typography from "@/components/atoms/typography";
+import LeaderboardsPage from "./components/leaderboards-page";
 
-export default function Leaderboards() {
-  const [selectedNumber, setSelectedNumber] = useState<number>();
-  const [undisplayedNumbers, setUndisplayedNumbers] = useState([1, 2, 3, 4]);
-
-  function onUndisplayedClicked(num: number) {
-    setUndisplayedNumbers((prev) =>
-      selectedNumber
-        ? [...prev.filter((n) => n !== num), selectedNumber].sort(
-            (a, b) => a - b
-          )
-        : prev.filter((n) => n !== num).sort((a, b) => a - b)
-    );
-    setSelectedNumber(num);
-  }
-
-  return (
-    <div className="flex flex-col flex-1 gap-10">
-      <div className="flex gap-6 items-center">
-        {undisplayedNumbers.map((num, i) => (
-          <div
-            key={i}
-            onClick={(e) => {
-              if (!document.startViewTransition) {
-                onUndisplayedClicked(num);
-                return;
-              } else {
-                // browser supports view transition. Animate the transtion.
-                e.preventDefault();
-                document.startViewTransition(() => {
-                  onUndisplayedClicked(num);
-                });
-              }
-            }}
-            className="w-[100px] aspect-square border border-pink-red rounded-md flex items-center justify-center"
-          >
-            <Typography variant="body">{num}</Typography>
-          </div>
-        ))}
-      </div>
-
-      <div className="w-[400px] aspect-square border border-blue-yinMin rounded-xl flex items-center justify-center">
-        <Typography variant="H2"> {selectedNumber}</Typography>
-      </div>
-    </div>
-  );
+export default async function Leaderboards() {
+  return <LeaderboardsPage leaderboards={leaderboards} />;
 }
 
-// after:absolute after:z-[10] after:inset-0 after:w-[13%] after:h-[13%] after:bg-blue-tiffany
+const leaderboards: Leaderboard[] = [
+  {
+    id: "ld-1",
+    coverPhoto:
+      "https://i.scdn.co/image/ab67616d00001e020ecc8c4fd215d9eb83cbfdb3",
+    userRank: 1,
+    rankings: [
+      {
+        user: "user-1",
+        rank: 1,
+        trend: { filter: "daily", positions: [1, 5, 3, 8] },
+      },
+      {
+        user: "user-2",
+        rank: 2,
+        trend: { filter: "daily", positions: [2, 3, 5, 4] },
+      },
+    ],
+  },
+  {
+    id: "ld-2",
+    coverPhoto:
+      "https://i.scdn.co/image/ab67616d00001e02a7ea08ab3914c5fb2084a8ac",
+    userRank: 4,
+    rankings: [
+      {
+        user: "user-1",
+        rank: 4,
+        trend: { filter: "daily", positions: [1, 5, 3, 8] },
+      },
+      {
+        user: "user-2",
+        rank: 2,
+        trend: { filter: "daily", positions: [2, 3, 5, 4] },
+      },
+    ],
+  },
+  {
+    id: "ld-3",
+    coverPhoto:
+      "https://i.scdn.co/image/ab67616d00001e021d97ca7376f835055f828139",
+    userRank: 3,
+    rankings: [
+      {
+        user: "user-1",
+        rank: 3,
+        trend: { filter: "daily", positions: [1, 5, 3, 8] },
+      },
+      {
+        user: "user-2",
+        rank: 2,
+        trend: { filter: "daily", positions: [2, 3, 5, 4] },
+      },
+    ],
+  },
+  {
+    id: "ld-4",
+    coverPhoto:
+      "https://i.scdn.co/image/ab67616d00001e021c0bcf8b536295438d26c70d",
+    userRank: 2,
+    rankings: [
+      {
+        user: "user-1",
+        rank: 2,
+        trend: { filter: "daily", positions: [2, 5, 3, 8] },
+      },
+      {
+        user: "user-2",
+        rank: 1,
+        trend: { filter: "daily", positions: [1, 3, 5, 4] },
+      },
+    ],
+  },
+];
