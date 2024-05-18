@@ -4,7 +4,7 @@ type Ranking = {
   username: User["username"];
   profilePhoto?: User["profilePhoto"];
   rank: number;
-  trend: { filter: "weekly" | "daily"; positions: number[] };
+  trend: { filter: "weekly" | "daily"; positions: { x: string; y: number }[] };
 };
 
 type Leaderboard = {

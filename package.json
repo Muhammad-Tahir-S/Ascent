@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.2.3",
+    "@nivo/core": "^0.87.0",
+    "@nivo/line": "^0.87.0",
     "clsx": "^2.1.0",
     "dexie": "^4.0.4",
     "dexie-react-hooks": "^1.1.7",
