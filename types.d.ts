@@ -1,13 +1,15 @@
 type User = { id: string; username: string; profilePhoto?: string };
 
 type Ranking = {
-  user: User["id"];
+  username: User["username"];
+  profilePhoto?: User["profilePhoto"];
   rank: number;
   trend: { filter: "weekly" | "daily"; positions: number[] };
 };
 
 type Leaderboard = {
   id: string;
+  name: string;
   userRank: number;
   rankings: Ranking[];
   coverPhoto?: string;

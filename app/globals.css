@@ -119,7 +119,7 @@ div.carousel-image-wrapper {
   transform-style: preserve-3d;
   position: relative;
   -webkit-box-reflect: below 1vmin
-    linear-gradient(transparent 0 60%, hsl(0 0% 100% / 0.3) 100%);
+    linear-gradient(transparent 0 70%, hsl(0 0% 100% / 0.3) 100%);
   &:hover {
     margin-bottom: 4px;
     animation: levitate 4s infinite;

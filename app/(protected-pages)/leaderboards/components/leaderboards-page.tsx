@@ -25,13 +25,13 @@ export default function LeaderboardsPage({
             const highestRankedLeaderboard = leaderboards.reduce((prev, curr) =>
               prev?.userRank > curr.userRank ? curr : prev
             );
+
             return (
-              <div key={lb.id} className="flex justify-center items-center">
-                <LeaderboardCard
-                  isHighestRanked={highestRankedLeaderboard.id === lb.id}
-                  leaderboard={lb}
-                />
-              </div>
+              <LeaderboardCard
+                key={lb.id}
+                isHighestRanked={highestRankedLeaderboard.id === lb.id}
+                leaderboard={lb}
+              />
             );
           })}
         </div>
