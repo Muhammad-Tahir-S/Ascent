@@ -14,7 +14,6 @@ export default function LeaderboardsPage({
     (lb) => !topThreeLbs.some(({ id }) => lb.id === id)
   );
 
-  console.log("remainingLbs", remainingLbs);
   return (
     <div className="grid grid-rows-2 flex-1 bg-deep-purple shadow-card rounded-[6px] p-6 gap-6">
       <div className="flex flex-col gap-3">

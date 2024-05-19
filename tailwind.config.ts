@@ -40,6 +40,8 @@ const config: Config = {
         breathe: "breathe 4s ease-in-out infinite",
         "loading-orb-bounce": "loading-orb-bounce 4s ease-in-out infinite",
         "draw-up": "draw-up 1s ease-in",
+        "swish-down": "swish-down 2s ease-in infinite;",
+        "swish-up": "swish-up 2s ease-in infinite;",
       },
       keyframes: {
         slideIn: {
@@ -73,6 +75,34 @@ const config: Config = {
         "draw-up": {
           "100%": {
             transform: "translateY(-100%)",
+          },
+        },
+        "swish-down": {
+          "0%": {
+            transform: "translateY(-10%)",
+          },
+          "50%": {
+            transform: "translateY(10%)",
+          },
+          "50.01%": {
+            transform: "translateY(-10%)",
+          },
+          "100%": {
+            transform: "translateY(10%)",
+          },
+        },
+        "swish-up": {
+          "0%": {
+            transform: "translateY(10%)",
+          },
+          "50%": {
+            transform: "translateY(-10%)",
+          },
+          "50.01%": {
+            transform: "translateY(10%)",
+          },
+          "100%": {
+            transform: "translateY(-10%)",
           },
         },
       },

@@ -18,7 +18,7 @@ const leaderboards: Leaderboard[] = [
         trend: {
           filter: "daily",
           positions: [
-            { x: "mon", y: 1 },
+            { x: "mon", y: 2 },
             { x: "tues", y: 3 },
             { x: "wed", y: 2 },
             { x: "thur", y: 6 },
@@ -35,7 +35,7 @@ const leaderboards: Leaderboard[] = [
           filter: "daily",
           positions: [
             { x: "mon", y: 1 },
-            { x: "tues", y: 3 },
+            { x: "tues", y: 1 },
             { x: "wed", y: 2 },
             { x: "thur", y: 6 },
             { x: "fri", y: 2 },
@@ -101,7 +101,7 @@ const leaderboards: Leaderboard[] = [
           filter: "daily",
           positions: [
             { x: "mon", y: 4 },
-            { x: "tues", y: 4 },
+            { x: "tues", y: 3 },
             { x: "wed", y: 2 },
             { x: "thur", y: 1 },
             { x: "fri", y: 7 },
@@ -117,7 +117,7 @@ const leaderboards: Leaderboard[] = [
           filter: "daily",
           positions: [
             { x: "mon", y: 1 },
-            { x: "tues", y: 3 },
+            { x: "tues", y: 1 },
             { x: "wed", y: 2 },
             { x: "thur", y: 6 },
             { x: "fri", y: 2 },
@@ -133,7 +133,7 @@ const leaderboards: Leaderboard[] = [
     name: "random title",
     coverPhoto:
       "https://i.scdn.co/image/ab67616d00001e021c0bcf8b536295438d26c70d",
-    userRank: 2,
+    userRank: 3,
     rankings: [
       {
         username: "MT",
@@ -142,7 +142,7 @@ const leaderboards: Leaderboard[] = [
           filter: "daily",
           positions: [
             { x: "mon", y: 4 },
-            { x: "tues", y: 4 },
+            { x: "tues", y: 2 },
             { x: "wed", y: 2 },
             { x: "thur", y: 1 },
             { x: "fri", y: 7 },
